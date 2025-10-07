@@ -4,8 +4,8 @@ import PokemonCard from "./PokemonCard";
 const PokemonList = ({ pokemons }) => {
   return (
     <div className="pokemonList">
-      {pokemons.map((pokemon, index) => (
-        <PokemonCard key={index} pokemon={pokemon} />
+      {pokemons.map((pokemon) => (
+        <PokemonCard key={pokemon.name} pokemon={pokemon} />
       ))}
     </div>
   );
