@@ -1,6 +1,6 @@
-import { SET_POKEMONS } from "./types";
+import { SET_POKEMONS } from "./types.js";
 
 export const setPokemons = (payload) => ({
-  types: SET_POKEMONS,
+  type: SET_POKEMONS,
   payload,
 });

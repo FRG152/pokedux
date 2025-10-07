@@ -2,14 +2,14 @@ import "./App.css";
 import { Col } from "antd";
 import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
+import { connect } from "react-redux";
 import { getPokemons } from "./api";
 import { setPokemons as setPokemonsActions } from "./actions";
 
-function App() {
-  const [pokemons, setPokemons] = useState([]);
-
+function App({ pokemons, setPokemons }) {
+  console.log(pokemons);
   useEffect(() => {
     const fetchPokemos = async () => {
       const results = await getPokemons();
