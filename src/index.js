@@ -2,23 +2,25 @@ import "./index.css";
 import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { logger } from "./middleware/index.js";
 import { Provider } from "react-redux";
 import { pokemonsReducer } from "./reducers/pokemons";
-import { featuring, logger } from "./middleware/index.js";
+
 import {
   compose,
   applyMiddleware,
   legacy_createStore as createStore,
 } from "redux";
 
+import { thunk } from "redux-thunk";
+
 import "@ant-design/v5-patch-for-react-19";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const composeEnhancers = compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(logger, featuring)
-);
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+
+const composeEnhancers = composeAlt(applyMiddleware(thunk, logger));
 
 const store = createStore(pokemonsReducer, composeEnhancers);
 
