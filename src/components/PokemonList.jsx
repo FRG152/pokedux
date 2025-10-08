@@ -6,6 +6,7 @@ const PokemonList = ({ pokemons }) => {
     <div className="pokemonList">
       {pokemons.map((pokemon) => (
         <PokemonCard
+          id={pokemon.id}
           key={pokemon.name}
           name={pokemon.name}
           abilities={pokemon.abilities}
