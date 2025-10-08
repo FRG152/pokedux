@@ -4,7 +4,7 @@ import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
 import { useEffect } from "react";
 import { getPokemons } from "./api";
-import { getPokemonsWithDetails, setLoading } from "./actions/index.js";
+import { getPokemonsWithDetails } from "./actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
